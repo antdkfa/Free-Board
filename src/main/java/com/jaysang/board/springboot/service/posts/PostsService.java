@@ -47,10 +47,11 @@ public class PostsService {
                 .stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
-    }
+    }`
 
     @Transactional
     public void delete(Long id) {
+        System.out.println("@@@@@");
         Posts posts = postsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
         postsRepository.delete(posts);
